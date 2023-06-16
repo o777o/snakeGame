@@ -39,7 +39,7 @@ module.exports = {
         exclude: '/node_modules/' 
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: [
           'style-loader',
           'css-loader',
@@ -61,6 +61,10 @@ module.exports = {
           },
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(woff|ttf|svg|eot)$/,//fonts目录下四个文件后缀名
+        use: ['url-loader']
       }
     ]
   },

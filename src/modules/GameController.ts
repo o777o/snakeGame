@@ -21,12 +21,21 @@ class GameController {
   }
 
   init() {
+    const virtualKeyboards = document.getElementsByTagName('i')
+    for (let i = 0; i < virtualKeyboards.length; i++) {
+      virtualKeyboards[i].addEventListener('click', () => {
+        this.keydownHandler({
+          key: virtualKeyboards[i].id
+        })
+      })
+    }
+
     document.addEventListener('keydown', this.keydownHandler.bind(this))
     this.food.change(this.snake.bodies)
     this.run()
   }
 
-  keydownHandler(event: KeyboardEvent) {
+  keydownHandler(event: { key: string }) {
     let { key } = event
     switch (key) {
       case 'ArrowUp':
@@ -80,6 +89,7 @@ class GameController {
     } catch (error) {
       alert((error as Error).message + ' Game Over!')
       this.isLive = false
+      window.location.reload()
     }
 
     this.isLive && setTimeout(() => this.run(), 300 - (this.scorePanel.level - 1) * 30)

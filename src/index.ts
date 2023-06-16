@@ -1,4 +1,5 @@
 import './style/index.scss'
+import './style/iconfont/iconfont.css'
 import GameController from './modules/GameController'
 
 const button = document.getElementById('start')!
@@ -9,6 +10,8 @@ button.addEventListener('click', function() {
   
   new GameController(level, score)
 })
+
+
 
 
 

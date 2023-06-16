@@ -62,6 +62,19 @@ body {
   }
 }
 
+.virtual-keyboard {
+  margin-top: -80px;
+  margin-bottom: 30px;
+  & > div {
+    display: flex;
+    justify-content: center;
+  }
+  i {
+    font-size: 50px;
+    padding: 5px;
+  }
+}
+
 #config {
   display: flex;
   justify-content: space-around;
